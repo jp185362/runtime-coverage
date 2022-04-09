@@ -4,8 +4,29 @@ This is a proof of concept for instrumenting Go services with runtime coverage t
 
 On exiting the `TestRunMain()` unit test, a coverage file is generated. Note that this requires a successful exit of main. If the main process exits with an error, a coverage file will not be generated
 
-## Running this sample:
+## Running the basic sample `main.go`:
 ```bash
+# Generate the Go test binary for this service
+make bin
+
+# Run the test binary
+make test
+
+# Print a report of the output coverage file
+make report
+```
+
+## Running the HTTP server example (Not yet working)
+***NOTE: NOT WORKING***
+
+#### Issues
+- Service currently exits with an error & no coverage report is generated
+
+
+```bash
+# Replace the simple entrypoint with the HTTP server sample
+cp archive/main_http.go ./main.go
+
 # Generate the Go test binary for this service
 make bin
 
